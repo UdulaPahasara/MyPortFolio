@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { Box, Container, Grid, Typography, TextField, Button, Stack, IconButton } from '@mui/material';
+import { Box, Container, Typography, TextField, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import { portfolioData } from '../utils/data';
@@ -65,6 +65,8 @@ const Contact = () => {
     { icon: 'mdi:email-outline',  label: 'Email',    value: portfolioData.personalInfo.email,    href: `mailto:${portfolioData.personalInfo.email}` },
     { icon: 'mdi:github',         label: 'GitHub',   value: 'github.com',                        href: portfolioData.personalInfo.github },
     { icon: 'mdi:linkedin',       label: 'LinkedIn', value: 'linkedin.com',                      href: portfolioData.personalInfo.linkedin },
+    { icon: 'mdi:facebook',       label: 'Facebook', value: 'facebook.com',                      href: portfolioData.personalInfo.facebook },
+    { icon: 'mdi:whatsapp',       label: 'WhatsApp', value: portfolioData.personalInfo.whatsapp, href: `https://wa.me/${portfolioData.personalInfo.whatsapp.replace('+', '')}` },
   ];
 
   return (
@@ -92,20 +94,21 @@ const Contact = () => {
             </motion.div>
           </Box>
 
-          {/* ── 3 Contact Info Chips (horizontal, full-width row) ── */}
+          {/* ── Row 1: 3 Contact Info Chips ── */}
           <motion.div variants={itemVariants}>
             <Box sx={{
               display: 'grid',
               gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr 1fr' },
               gap: 2,
-              mb: 4,
+              mb: 2,
             }}>
-              {contactLinks.map(({ icon, label, value, href }) => (
+              {contactLinks.slice(0, 3).map(({ icon, label, value, href }) => (
                 <Box
                   key={label}
                   component="a"
                   href={href}
                   target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={`Connect with me via ${label}`}
                   sx={{
                     display: 'flex',
@@ -117,6 +120,63 @@ const Contact = () => {
                     border: '1px solid rgba(255,255,255,0.06)',
                     textDecoration: 'none',
                     transition: 'all 0.25s',
+                    '&:hover': {
+                      border: '1px solid rgba(6, 182, 212, 0.4)',
+                      bgcolor: 'rgba(6, 182, 212, 0.06)',
+                      transform: 'translateY(-2px)',
+                    },
+                  }}
+                >
+                  <Box sx={{
+                    width: 44, height: 44, borderRadius: '10px', flexShrink: 0,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    bgcolor: 'rgba(6, 182, 212, 0.12)',
+                    color: 'primary.main',
+                    border: '1px solid rgba(6, 182, 212, 0.2)',
+                  }}>
+                    <Icon icon={icon} width="22" height="22" />
+                  </Box>
+                  <Box>
+                    <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 0.3 }}>
+                      {label}
+                    </Typography>
+                    <Typography sx={{ color: 'text.primary', fontWeight: 600, fontSize: '0.88rem' }}>
+                      {value}
+                    </Typography>
+                  </Box>
+                </Box>
+              ))}
+            </Box>
+          </motion.div>
+
+          {/* ── Row 2: Last 2 chips centered ── */}
+          <motion.div variants={itemVariants}>
+            <Box sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: 2,
+              mb: 4,
+            }}>
+              {contactLinks.slice(3).map(({ icon, label, value, href }) => (
+                <Box
+                  key={label}
+                  component="a"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Connect with me via ${label}`}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    p: 2,
+                    borderRadius: '14px',
+                    bgcolor: 'rgba(15, 23, 42, 0.5)',
+                    border: '1px solid rgba(255,255,255,0.06)',
+                    textDecoration: 'none',
+                    transition: 'all 0.25s',
+                    flex: '0 1 calc(33.333% - 8px)',
+                    minWidth: { xs: '100%', sm: 'auto' },
                     '&:hover': {
                       border: '1px solid rgba(6, 182, 212, 0.4)',
                       bgcolor: 'rgba(6, 182, 212, 0.06)',

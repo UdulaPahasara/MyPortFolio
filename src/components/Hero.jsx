@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { Box, Container, Grid, Typography, Stack, Button } from '@mui/material';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Icon } from '@iconify/react';
@@ -60,6 +60,7 @@ const FloatingIcon = ({ icon, color, style, dur, delay }) => (
     top: { xs: 'auto', md: style?.top },
     left: { xs: 'auto', md: style?.left },
     zIndex: 3,
+    willChange: 'transform',
   }}>
     <motion.div
       animate={{ y: [-12, 10, -12], rotate: [-4, 4, -4] }}

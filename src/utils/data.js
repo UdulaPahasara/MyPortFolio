@@ -3,7 +3,9 @@ export const portfolioData = {
     name: 'PEHESARA Developer',
     bio: 'I am a passionate Full Stack Developer with expertise in building scalable, modern web applications. I love solving complex problems and crafting intuitive user experiences.',
     github: 'https://github.com',
-    linkedin: 'https://linkedin.com',
+    linkedin: 'https://www.linkedin.com/in/udula-pehesara-a9a038358/',
+    facebook: 'https://www.facebook.com/udula.pahasara.3/',
+    whatsapp: '+94768505837',
     email: 'udulapahasara1@gmail.com',
   },
   skills: [

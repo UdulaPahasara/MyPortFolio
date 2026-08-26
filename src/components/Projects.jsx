@@ -22,10 +22,8 @@ const ProjectCard = ({ project, index }) => {
             flexDirection: { xs: 'column', md: index % 2 === 0 ? 'row' : 'row-reverse' },
             bgcolor: 'transparent',
             border: 'none',
-            bgcolor: 'transparent',
-            border: 'none',
             boxShadow: 'none',
-            alignItems: 'stretch', // Stretches left and right columns to equal height
+            alignItems: 'stretch',
             gap: { xs: 4, md: 8 }
           }}
         >
@@ -55,7 +53,9 @@ const ProjectCard = ({ project, index }) => {
               <CardMedia
                 component="img"
                 image={project.image}
-                alt={project.title}
+                alt={`${project.title} — project screenshot`}
+                loading="lazy"
+                decoding="async"
                 sx={{ 
                   width: '100%', 
                   height: '100%',
@@ -95,6 +95,8 @@ const ProjectCard = ({ project, index }) => {
                   component="img"
                   image={img}
                   alt={`${project.title} screenshot ${idx + 1}`}
+                  loading="lazy"
+                  decoding="async"
                   sx={{ 
                     width: '100%', 
                     height: '100%',
@@ -196,6 +198,7 @@ const ProjectCard = ({ project, index }) => {
                   color="primary"
                   href={project.githubUrl}
                   target="_blank"
+                  rel="noopener noreferrer"
                   startIcon={<Icon icon="mdi:github" />}
                   sx={{ borderRadius: '8px' }}
                 >
