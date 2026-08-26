@@ -7,20 +7,22 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        // Split large vendor libraries into separate cached chunks.
-        // Result: faster initial load + better long-term browser caching.
-        manualChunks: {
-          // MUI is the largest dep (~300KB). Split it into its own chunk.
-          'vendor-mui': ['@mui/material', '@emotion/react', '@emotion/styled'],
-          // Framer Motion is ~120KB — separated so it can cache independently.
-          'vendor-motion': ['framer-motion'],
-          // Iconify is loaded on every section — isolated for efficient caching.
-          'vendor-icons': ['@iconify/react'],
+        // Vite 8 uses rolldown — manualChunks must be a function, not an object.
+        manualChunks(id) {
+          if (id.includes('@mui/material') || id.includes('@emotion/react') || id.includes('@emotion/styled')) {
+            return 'vendor-mui';
+          }
+          if (id.includes('framer-motion')) {
+            return 'vendor-motion';
+          }
+          if (id.includes('@iconify')) {
+            return 'vendor-icons';
+          }
         },
       },
     },
-    // Raise the chunk warning threshold to suppress warnings for known large deps.
     chunkSizeWarningLimit: 600,
   },
 })
+
 
