@@ -153,6 +153,7 @@ const Contact = () => {
           <motion.div variants={itemVariants}>
             <Box sx={{
               display: 'flex',
+              flexDirection: { xs: 'column', sm: 'row' },
               justifyContent: 'center',
               gap: 2,
               mb: 4,
@@ -217,7 +218,7 @@ const Contact = () => {
             }}>
               <Box sx={{
                 display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
+                gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
                 gap: 2,
               }}>
                 {/* Row 1 */}

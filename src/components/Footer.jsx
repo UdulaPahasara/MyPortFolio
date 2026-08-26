@@ -65,7 +65,7 @@ const Footer = () => {
             <Box component="span" sx={{ color: 'primary.main', fontWeight: 700 }}>
               {name}
             </Box>
-            . Designed & Built with ❤️ using React & MUI.
+            . Designed & Built with using React & MUI.
           </Typography>
           <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.25)', mt: 0.5, display: 'block' }}>
             All rights reserved.
