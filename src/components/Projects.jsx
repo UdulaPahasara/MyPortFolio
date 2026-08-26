@@ -19,7 +19,7 @@ const ProjectCard = ({ project, index }) => {
         <Card 
           sx={{ 
             display: 'flex', 
-            flexDirection: { xs: 'column', md: index % 2 === 0 ? 'row' : 'row-reverse' },
+            flexDirection: { xs: 'column-reverse', md: index % 2 === 0 ? 'row' : 'row-reverse' },
             bgcolor: 'transparent',
             border: 'none',
             boxShadow: 'none',
@@ -37,6 +37,7 @@ const ProjectCard = ({ project, index }) => {
                 overflow: 'hidden', 
                 position: 'relative',
                 minHeight: { xs: '250px', md: 0 },
+                maxHeight: { sm: '300px', md: 'none' },
                 border: '1px solid rgba(255,255,255,0.1)',
                 '&::after': {
                   content: '""',
@@ -78,6 +79,7 @@ const ProjectCard = ({ project, index }) => {
                   overflow: 'hidden', 
                   position: 'relative',
                   minHeight: { xs: '250px', md: 0 },
+                  maxHeight: { sm: '300px', md: 'none' },
                   border: '1px solid rgba(255,255,255,0.1)',
                   '&::after': {
                     content: '""',
