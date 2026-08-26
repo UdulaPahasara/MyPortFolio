@@ -1,0 +1,47 @@
+/* ── Base Reset & Typography ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* scroll-behavior: smooth removed — conflicts with Lenis smooth scroll */
+  scroll-behavior: auto;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #0f172a; /* Slate 900 base */
+  color: #f8fafc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide native scrollbar for sleekness */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/**
+ * When scrolling, tell the browser to pause CSS animations on floating icons.
+ * This targets Framer Motion's generated animation-play-state.
+ * Zero JS cost — runs entirely on the GPU compositor thread.
+ */
+html.is-scrolling .floating-icon-wrapper * {
+  animation-play-state: paused !important;
+}
