@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Box, Container, Grid, Typography, Card, CardMedia, CardContent, Chip, Stack, Button, Collapse } from '@mui/material';
+import { Box, Container, Grid, Typography, Card, CardMedia, CardContent, Chip, Stack, Button, Collapse, useTheme, Pagination } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import { portfolioData } from '../utils/data';
 
 const ProjectCard = ({ project, index }) => {
   const [expanded, setExpanded] = useState(false);
+  const theme = useTheme();
   const hasDetails = project.features || project.highlights;
 
   return (
@@ -36,9 +37,9 @@ const ProjectCard = ({ project, index }) => {
                 borderRadius: '20px', 
                 overflow: 'hidden', 
                 position: 'relative',
-                minHeight: { xs: '250px', md: 0 },
-                maxHeight: { sm: '300px', md: 'none' },
-                border: '1px solid rgba(255,255,255,0.1)',
+                minHeight: { xs: '200px', md: '250px' },
+                maxHeight: { sm: '300px', md: '350px' },
+                border: theme.palette.mode === 'dark' ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.1)',
                 '&::after': {
                   content: '""',
                   position: 'absolute',
@@ -78,9 +79,9 @@ const ProjectCard = ({ project, index }) => {
                   borderRadius: '20px', 
                   overflow: 'hidden', 
                   position: 'relative',
-                  minHeight: { xs: '250px', md: 0 },
-                  maxHeight: { sm: '300px', md: 'none' },
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  minHeight: { xs: '200px', md: '250px' },
+                  maxHeight: { sm: '300px', md: '350px' },
+                  border: theme.palette.mode === 'dark' ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.1)',
                   '&::after': {
                     content: '""',
                     position: 'absolute',
@@ -120,7 +121,7 @@ const ProjectCard = ({ project, index }) => {
                 {project.title}
               </Typography>
               
-              <Box sx={{ bgcolor: 'rgba(30, 41, 59, 0.8)', p: 3, borderRadius: '12px', mb: 3, border: '1px solid rgba(255,255,255,0.05)' }}>
+              <Box sx={{ bgcolor: theme.palette.mode === 'dark' ? 'rgba(30, 41, 59, 0.8)' : 'rgba(255, 255, 255, 0.8)', p: 3, borderRadius: '12px', mb: 3, border: theme.palette.mode === 'dark' ? '1px solid rgba(255,255,255,0.05)' : '1px solid rgba(0,0,0,0.05)' }}>
                 <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.7, mb: (expanded && hasDetails) ? 2 : 0 }}>
                   {project.description}
                 </Typography>
@@ -143,7 +144,7 @@ const ProjectCard = ({ project, index }) => {
                       )}
 
                       {project.highlights && (
-                        <Box sx={{ mt: 3, pt: 3, borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                        <Box sx={{ mt: 3, pt: 3, borderTop: theme.palette.mode === 'dark' ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.1)' }}>
                           <Typography variant="subtitle2" sx={{ color: 'primary.main', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', mb: 2, textAlign: 'left' }}>
                             Technical Highlights
                           </Typography>
@@ -198,13 +199,13 @@ const ProjectCard = ({ project, index }) => {
                 <Button 
                   variant="contained" 
                   color="primary"
-                  href={project.githubUrl}
+                  href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  startIcon={<Icon icon="mdi:github" />}
+                  startIcon={<Icon icon="mdi:open-in-new" />}
                   sx={{ borderRadius: '8px' }}
                 >
-                  Source Code
+                  Visit Site
                 </Button>
               </Box>
 
@@ -218,11 +219,31 @@ const ProjectCard = ({ project, index }) => {
 };
 
 const Projects = () => {
+  const [page, setPage] = useState(1);
+  const projectsPerPage = 3;
+  const pageCount = Math.ceil(portfolioData.projects.length / projectsPerPage);
+
+  const handleChange = (event, value) => {
+    setPage(value);
+    const element = document.getElementById('projects');
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
+  };
+
+  const displayedProjects = portfolioData.projects.slice(
+    (page - 1) * projectsPerPage,
+    page * projectsPerPage
+  );
+
   return (
     <Box sx={{ py: 15 }}>
       <Container maxWidth="lg">
         
-        <Box sx={{ mb: 10, textAlign: { xs: 'center', md: 'left' } }}>
+        <Box sx={{ mb: 10, textAlign: { xs: 'center', md: 'center' } }}>
           <Typography variant="body2" sx={{ color: 'primary.main', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', mb: 2 }}>
             Featured Work
           </Typography>
@@ -232,10 +253,30 @@ const Projects = () => {
         </Box>
 
         <Grid container spacing={6}>
-          {portfolioData.projects.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
+          {displayedProjects.map((project, index) => (
+            <ProjectCard key={`${project.title}-${index}`} project={project} index={index} />
           ))}
         </Grid>
+
+        {pageCount > 1 && (
+          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 8 }}>
+            <Pagination 
+              count={pageCount} 
+              page={page} 
+              onChange={handleChange} 
+              color="primary"
+              size="large"
+              sx={{
+                '& .MuiPaginationItem-root': {
+                  color: 'text.secondary',
+                  '&.Mui-selected': {
+                    color: 'white',
+                  }
+                }
+              }}
+            />
+          </Box>
+        )}
 
       </Container>
     </Box>

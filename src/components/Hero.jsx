@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, Stack, Button } from '@mui/material';
+import { Box, Container, Grid, Typography, Stack, Button, useTheme } from '@mui/material';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import { portfolioData } from '../utils/data';
@@ -23,18 +23,22 @@ const FLOATING_ICONS = [
   { icon: 'logos:c-sharp',         color: null,       style: { top: 350, left: 155 }, dur: 6.5, delay: 0.8 },
 ];
 
-const GlassIconBox = ({ icon, color }) => (
+const GlassIconBox = ({ icon, color }) => {
+  const theme = useTheme();
+  return (
   <Box sx={{
     width: ICON_SIZE, height: ICON_SIZE,
     display: 'flex', alignItems: 'center', justifyContent: 'center',
     borderRadius: '18px',
-    background: 'rgba(12, 22, 38, 0.88)',
-    border: '1px solid rgba(255,255,255,0.1)',
-    boxShadow: '0 6px 20px rgba(0,0,0,0.35)',
+    background: theme.palette.mode === 'dark' ? 'rgba(12, 22, 38, 0.88)' : 'rgba(255, 255, 255, 0.88)',
+    border: theme.palette.mode === 'dark' ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.1)',
+    boxShadow: theme.palette.mode === 'dark' ? '0 6px 20px rgba(0,0,0,0.35)' : '0 6px 20px rgba(0,0,0,0.1)',
+    color: color === 'white' ? 'text.primary' : color,
   }}>
-    <Icon icon={icon} width="40" height="40" {...(color ? { color } : {})} />
+    <Icon icon={icon} width="40" height="40" />
   </Box>
-);
+  );
+};
 
 /**
  * PERFORMANCE FIX:
@@ -72,6 +76,7 @@ const FloatingIcon = ({ icon, color, style, dur, delay }) => (
 );
 
 const Hero = () => {
+  const theme = useTheme();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
@@ -134,7 +139,7 @@ const Hero = () => {
                     variant="outlined" 
                     size="large" 
                     onClick={() => handleScroll('contact')}
-                    sx={{ borderRadius: '8px', px: 4, py: 1.5, fontSize: '1.1rem', borderColor: 'rgba(255,255,255,0.2)', color: 'white', '&:hover': { borderColor: 'white' } }}
+                    sx={{ borderRadius: '8px', px: 4, py: 1.5, fontSize: '1.1rem', borderColor: theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)', color: 'text.primary', '&:hover': { borderColor: 'text.primary' } }}
                   >
                     Contact Me
                   </Button>

@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Container, Stack, Typography, Button, IconButton } from '@mui/material';
+import React, { useState, useEffect, useContext } from 'react';
+import { Box, Container, Stack, Typography, Button, IconButton, useTheme } from '@mui/material';
 import { Icon } from '@iconify/react';
 import { portfolioData } from '../utils/data';
 import profileImg from '../assets/Profile/profile.webp';
+import { ThemeContext } from '../theme/ThemeContext';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('About');
+  const { mode, toggleTheme } = useContext(ThemeContext);
+  const theme = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +50,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <Box component="header" sx={{ position: 'fixed', top: 0, width: '100%', zIndex: 100, backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(255,255,255,0.05)', bgcolor: 'rgba(15, 23, 42, 0.7)' }}>
+    <Box component="header" sx={{ position: 'fixed', top: 0, width: '100%', zIndex: 100, backdropFilter: 'blur(12px)', borderBottom: mode === 'dark' ? '1px solid rgba(255,255,255,0.05)' : '1px solid rgba(0,0,0,0.05)', bgcolor: mode === 'dark' ? 'rgba(15, 23, 42, 0.7)' : 'rgba(255, 255, 255, 0.8)' }}>
       <Container maxWidth="lg">
         {/* Outer flex container */}
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: 80 }}>
@@ -116,7 +119,10 @@ const Navbar = () => {
 
           {/* RIGHT: Buttons (Takes up 1/3 space) */}
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 2 }}>
-            <IconButton aria-label="Visit my GitHub profile" href={portfolioData.personalInfo.github} target="_blank" sx={{ color: 'text.secondary', display: { xs: 'none', sm: 'flex' }, '&:hover': { color: 'white' } }}>
+            <IconButton aria-label="Toggle light/dark mode" onClick={toggleTheme} sx={{ color: 'text.secondary', '&:hover': { color: 'text.primary' } }}>
+              <Icon icon={mode === 'dark' ? 'ph:sun-fill' : 'ph:moon-fill'} width="24" />
+            </IconButton>
+            <IconButton aria-label="Visit my GitHub profile" href={portfolioData.personalInfo.github} target="_blank" sx={{ color: 'text.secondary', display: { xs: 'none', sm: 'flex' }, '&:hover': { color: 'text.primary' } }}>
               <Icon icon="mdi:github" width="24" />
             </IconButton>
             <Button variant="contained" color="primary" sx={{ borderRadius: '8px' }}>

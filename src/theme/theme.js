@@ -1,8 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
-export const darkTheme = createTheme({
+export const getAppTheme = (mode) => createTheme({
   palette: {
-    mode: 'dark',
+    mode,
     primary: {
       main: '#06b6d4', // Cyan 500
     },
@@ -10,12 +10,12 @@ export const darkTheme = createTheme({
       main: '#8b5cf6', // Violet 500
     },
     background: {
-      default: '#0f172a', // Slate 900
-      paper: '#1e293b',   // Slate 800
+      default: mode === 'dark' ? '#0f172a' : '#f8fafc',
+      paper: mode === 'dark' ? '#1e293b' : '#ffffff',
     },
     text: {
-      primary: '#f8fafc', // Slate 50
-      secondary: '#94a3b8', // Slate 400
+      primary: mode === 'dark' ? '#f8fafc' : '#0f172a',
+      secondary: mode === 'dark' ? '#94a3b8' : '#475569',
     },
   },
   typography: {
@@ -62,9 +62,9 @@ export const darkTheme = createTheme({
       styleOverrides: {
         root: {
           backgroundImage: 'none', // Remove default MUI overlay
-          backgroundColor: 'rgba(30, 41, 59, 0.7)',
+          backgroundColor: mode === 'dark' ? 'rgba(30, 41, 59, 0.7)' : 'rgba(255, 255, 255, 0.7)',
           backdropFilter: 'blur(12px)',
-          border: '1px solid rgba(255, 255, 255, 0.05)',
+          border: mode === 'dark' ? '1px solid rgba(255, 255, 255, 0.05)' : '1px solid rgba(0, 0, 0, 0.05)',
         },
       },
     },

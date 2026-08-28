@@ -16,8 +16,6 @@ body {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
-  background-color: #0f172a; /* Slate 900 base */
-  color: #f8fafc;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

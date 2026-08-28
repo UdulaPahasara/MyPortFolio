@@ -4,7 +4,6 @@ export const portfolioData = {
     bio: 'I am a passionate Full Stack Developer with expertise in building scalable, modern web applications. I love solving complex problems and crafting intuitive user experiences.',
     github: 'https://github.com',
     linkedin: 'https://www.linkedin.com/in/udula-pehesara-a9a038358/',
-    facebook: 'https://www.facebook.com/udula.pahasara.3/',
     whatsapp: '+94768505837',
     email: 'udulapahasara1@gmail.com',
   },
@@ -19,13 +18,127 @@ export const portfolioData = {
     { name: 'AI Bots', icon: 'fluent:bot-24-regular' },
   ],
   projects: [
+     {
+      title: 'SLEDAA Management Platform',
+      description: 'A comprehensive full-stack web platform and administration portal designed for the Sri Lankan Engineering Diplomates Association of Australia (SLEDAA). It features a modern public-facing website for members and an advanced administrative dashboard backed by a robust Spring Boot enterprise-grade architecture.',
+      features: [
+        { title: 'Secure Administration Panel', desc: 'Robust JWT-based authentication system with secure session management, providing authorized committee members with a dedicated management dashboard.' },
+        { title: 'Comprehensive CMS', desc: 'Full CRUD capabilities for dynamic content including events, news updates, ongoing projects, downloadable resources, and photo albums.' },
+        { title: 'AI Integration', desc: 'Integrated Google Gemini AI to power an intelligent chatbot, assisting website visitors with instant answers regarding membership and events.' },
+        { title: 'Historical Directory', desc: 'Advanced management of past and present committee members, organized by committee years, allowing for historical tracking of the organization\'s leadership.' },
+        { title: 'Enterprise-Grade File Handling', desc: 'Engineered backend architecture specifically configured to handle high-volume media uploads (up to 10GB limits) for comprehensive photo galleries.' }
+      ],
+      highlights: [
+        'Built a highly responsive frontend architecture separated into public and admin portals using React, Material-UI, and Vite.',
+        'Developed a scalable, robust RESTful API with Java 17, Spring Boot, and Spring Data JPA/Hibernate for efficient MySQL interactions.',
+        'Implemented rigorous security best practices including state-of-the-art JWT for stateless authentication and secure CORS configurations.'
+      ],
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2000&auto=format&fit=crop',
+      extraImages: [
+        'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2000&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=2000&auto=format&fit=crop' // Event/Conference placeholder
+      ],
+      tech: ['React', 'Spring Boot', 'Java', 'MySQL', 'Material-UI', 'JWT', 'Gemini AI'],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://sledaa.com/',
+    },
+
+     {
+      title: 'SPK Store E-Commerce',
+      description: 'A comprehensive, modern e-commerce web platform and administration portal designed for high-end photography and drone equipment. It manages user authentication, dynamic product catalogs, and order tracking, featuring interactive 3D product showcases and smart multi-language detection.',
+      features: [
+        { title: 'Secure Administration Panel', desc: 'Secure authentication system with Google OAuth integration, providing authorized store staff with a dedicated data-driven dashboard (powered by Chart.js) to manage digital inventory and track orders.' },
+        { title: 'Comprehensive E-Commerce Workflow', desc: 'Full capabilities for a dynamic shopping experience, including advanced cart management, seamless checkout processes, and detailed user profiles with order history.' },
+        { title: 'AI & 3D Showcase Integration', desc: 'Integrated Gemini AI for instant customer support, alongside cutting-edge 3D product showcases utilizing React Three Fiber for interactive examination of high-end equipment.' },
+        { title: 'Dynamic Product Management', desc: 'Dedicated admin routes allowing full CRUD operations for product categories such as drones, gimbals, and mobile lenses.' },
+        { title: 'Smart Internationalization', desc: 'Built-in language detection and translation capabilities utilizing i18next, natively supporting a diverse, global customer base.' }
+      ],
+      highlights: [
+        'Built a highly responsive frontend architecture separated into public storefront and admin portals using React, Material-UI, and Vite.',
+        'Developed immersive, interactive 3D product viewing experiences utilizing Three.js and React Three Fiber, elevating the standard e-commerce interface.',
+        'Implemented robust authentication using Google OAuth 2.0 alongside custom routing rules to protect administrative portals.',
+        'Architected a clean separation of concerns with global state management via context providers and complex internationalization setups.'
+      ],
+      image: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=2000&auto=format&fit=crop',
+      extraImages: [
+        'https://images.unsplash.com/photo-1473968512647-3e447244af8f?q=80&w=2000&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?q=80&w=2000&auto=format&fit=crop'
+      ],
+      tech: ['React', 'Vite', 'Three.js', 'Google OAuth', 'Gemini AI', 'i18next', 'Chart.js', 'Material-UI'],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://spkstore.lk/',
+    },
+    {
+      title: 'AC Elite Cleaning Services',
+      description: 'A professional and modern corporate web platform designed for a premium cleaning service company. It provides an intuitive interface for clients to explore specialized cleaning services and seamlessly book appointments online.',
+      features: [
+        { title: 'Interactive Booking System', desc: 'Integrated a seamless "Book Now" modal utilizing Material-UI Dialogs, allowing users to schedule services instantly without navigating away from the current page.' },
+        { title: 'Comprehensive Service Catalog', desc: 'Dedicated service routes for End of Lease, Commercial, Upholstery, and Weekly cleaning, showcasing tailored offerings.' },
+        { title: 'Reliable Lead Generation', desc: 'Implemented robust contact and booking forms utilizing EmailJS for instant, serverless email notifications to the business owners.' },
+        { title: 'Modern UI/UX Architecture', desc: 'Built with React Router for smooth client-side navigation and animated components to ensure a premium browsing experience.' }
+      ],
+      highlights: [
+        'Architected a highly responsive, multi-page frontend using React and Vite, ensuring fast load times and excellent user experience.',
+        'Developed a clean, professional design system utilizing Material-UI (MUI) components for consistent, accessible user interactions.',
+        'Implemented a seamless, serverless communication pipeline utilizing EmailJS to handle customer inquiries and booking requests reliably.'
+      ],
+      image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2000&auto=format&fit=crop',
+      extraImages: [
+        'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=2000&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2000&auto=format&fit=crop',
+        
+      ],
+      tech: ['React', 'Vite', 'Material-UI', 'React Router', 'EmailJS'],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://example.com',
+    },
+    {
+      title: 'TeaLora Ceylon',
+      description: 'A comprehensive, modern corporate web platform designed for a premium Ceylon tea brand. It showcases the brand\'s heritage, extensive tea collections, and sustainability efforts, featuring an interactive user interface with seamless global inquiry capabilities.',
+      features: [
+        { title: 'Interactive Product Collections', desc: 'Dynamic and responsive Swiper-based carousels providing an elegant, interactive showcase of premium tea collections.' },
+        { title: 'Seamless Global Inquiries', desc: 'Integrated direct messaging system utilizing EmailJS and React Hook Form, enabling global customers to submit inquiries seamlessly.' },
+        { title: 'Modern UI/UX Architecture', desc: 'Highly engaging, animated user interface built with Material-UI, incorporating custom scroll interactions and visually stunning image overlays.' },
+        { title: 'Corporate Storytelling', desc: 'Dedicated routes for Sustainability, About Us, and Purpose, seamlessly blending brand storytelling with product discovery.' },
+        { title: 'Fully Responsive Design', desc: 'Optimized viewing experience across all devices with adaptive layouts, touch-friendly carousels for mobile, and rich desktop interactions.' }
+      ],
+      highlights: [
+        'Built a highly responsive frontend architecture using React, Material-UI, and Vite to deliver a premium, high-performance web experience.',
+        'Engineered interactive and touch-friendly product showcases utilizing Swiper for complex, customized sliding carousels.',
+        'Implemented a serverless contact solution using EmailJS for instant, reliable global customer inquiries.',
+        'Architected clean separation of concerns with React Router DOM for structured navigation across corporate and product pages.'
+      ],
+      image: 'https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?q=80&w=2000&auto=format&fit=crop',
+      extraImages: [
+        'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?q=80&w=2000&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1582793988951-9aed5509eb97?q=80&w=2000&auto=format&fit=crop'
+      ],
+      tech: ['React', 'Vite', 'Material-UI', 'Swiper', 'EmailJS'],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://tealora.com',
+    },
     {
       title: 'Zylogenix',
       description: 'A modern corporate digital agency website offering tailored digital services, business-focused technology solutions, and expert guidance. It showcases services like web development, UI/UX design, and digital marketing, featuring smooth animations and a responsive, interactive user interface to scale brands.',
+      features: [
+        { title: 'Interactive Loading Experience', desc: 'Custom engineered loading screen featuring Framer Motion animations and sessionStorage integration, ensuring users only see it once per session for optimal UX.' },
+        { title: 'Comprehensive Service Portfolios', desc: 'Dedicated pages showcasing specialized agency capabilities including Web & App Development, Digital Marketing, Design & Branding, and IT Support.' },
+        { title: 'Advanced SEO Optimization', desc: 'Integrated react-helmet-async to dynamically manage document head tags, optimizing meta content across all routes for superior search engine visibility.' },
+        { title: 'Seamless Navigation Engine', desc: 'Architected with React Router, featuring custom scroll-to-top behaviors and clean redirection logic for legacy routes.' }
+      ],
+      highlights: [
+        'Built a high-performance frontend architecture using React, Vite, and Material-UI (MUI), prioritizing fast load times and clean component design.',
+        'Engineered complex, highly engaging micro-interactions and page transitions utilizing Framer Motion to deliver a premium agency feel.',
+        'Implemented a robust lead-generation pipeline utilizing EmailJS for reliable, serverless contact form submissions.'
+      ],
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop',
-      tech: ['React', 'Vite', 'Material-UI', 'Framer Motion'],
+      extraImages: [
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop',
+        'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2000&auto=format&fit=crop'
+      ],
+      tech: ['React', 'Vite', 'Material-UI', 'Framer Motion', 'React Helmet'],
       githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+      liveUrl: 'https://zylogenix-orcin.vercel.app/',
     },
     {
       title: 'Enterprise POS & Inventory',
@@ -49,55 +162,8 @@ export const portfolioData = {
       githubUrl: 'https://github.com',
       liveUrl: 'https://example.com',
     },
-    {
-      title: 'SLEDAA Management Platform',
-      description: 'A comprehensive full-stack web platform and administration portal designed for the Sri Lankan Engineering Diplomates Association of Australia (SLEDAA). It features a modern public-facing website for members and an advanced administrative dashboard backed by a robust Spring Boot enterprise-grade architecture.',
-      features: [
-        { title: 'Secure Administration Panel', desc: 'Robust JWT-based authentication system with secure session management, providing authorized committee members with a dedicated management dashboard.' },
-        { title: 'Comprehensive CMS', desc: 'Full CRUD capabilities for dynamic content including events, news updates, ongoing projects, downloadable resources, and photo albums.' },
-        { title: 'AI Integration', desc: 'Integrated Google Gemini AI to power an intelligent chatbot, assisting website visitors with instant answers regarding membership and events.' },
-        { title: 'Historical Directory', desc: 'Advanced management of past and present committee members, organized by committee years, allowing for historical tracking of the organization\'s leadership.' },
-        { title: 'Enterprise-Grade File Handling', desc: 'Engineered backend architecture specifically configured to handle high-volume media uploads (up to 10GB limits) for comprehensive photo galleries.' }
-      ],
-      highlights: [
-        'Built a highly responsive frontend architecture separated into public and admin portals using React, Material-UI, and Vite.',
-        'Developed a scalable, robust RESTful API with Java 17, Spring Boot, and Spring Data JPA/Hibernate for efficient MySQL interactions.',
-        'Implemented rigorous security best practices including state-of-the-art JWT for stateless authentication and secure CORS configurations.'
-      ],
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2000&auto=format&fit=crop',
-      extraImages: [
-        'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2000&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=2000&auto=format&fit=crop' // Event/Conference placeholder
-      ],
-      tech: ['React', 'Spring Boot', 'Java', 'MySQL', 'Material-UI', 'JWT', 'Gemini AI'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-    },
-    {
-      title: 'SPK Store E-Commerce',
-      description: 'A comprehensive, modern e-commerce web platform and administration portal designed for high-end photography and drone equipment. It manages user authentication, dynamic product catalogs, and order tracking, featuring interactive 3D product showcases and smart multi-language detection.',
-      features: [
-        { title: 'Secure Administration Panel', desc: 'Secure authentication system with Google OAuth integration, providing authorized store staff with a dedicated data-driven dashboard (powered by Chart.js) to manage digital inventory and track orders.' },
-        { title: 'Comprehensive E-Commerce Workflow', desc: 'Full capabilities for a dynamic shopping experience, including advanced cart management, seamless checkout processes, and detailed user profiles with order history.' },
-        { title: 'AI & 3D Showcase Integration', desc: 'Integrated Gemini AI for instant customer support, alongside cutting-edge 3D product showcases utilizing React Three Fiber for interactive examination of high-end equipment.' },
-        { title: 'Dynamic Product Management', desc: 'Dedicated admin routes allowing full CRUD operations for product categories such as drones, gimbals, and mobile lenses.' },
-        { title: 'Smart Internationalization', desc: 'Built-in language detection and translation capabilities utilizing i18next, natively supporting a diverse, global customer base.' }
-      ],
-      highlights: [
-        'Built a highly responsive frontend architecture separated into public storefront and admin portals using React, Material-UI, and Vite.',
-        'Developed immersive, interactive 3D product viewing experiences utilizing Three.js and React Three Fiber, elevating the standard e-commerce interface.',
-        'Implemented robust authentication using Google OAuth 2.0 alongside custom routing rules to protect administrative portals.',
-        'Architected a clean separation of concerns with global state management via context providers and complex internationalization setups.'
-      ],
-      image: 'https://images.unsplash.com/photo-1508614589041-895b88991e3e?q=80&w=2000&auto=format&fit=crop',
-      extraImages: [
-        'https://images.unsplash.com/photo-1473968512647-3e447244af8f?q=80&w=2000&auto=format&fit=crop',
-        'https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?q=80&w=2000&auto=format&fit=crop'
-      ],
-      tech: ['React', 'Vite', 'Three.js', 'Google OAuth', 'Gemini AI', 'i18next', 'Chart.js', 'Material-UI'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-    },
+   
+   
     {
       title: 'Professional Networking Platform',
       description: 'A comprehensive, modern professional networking and recruitment platform designed to seamlessly connect individuals and companies. It manages dual-faceted user profiles, dynamic job postings, and interactive communications, featuring built-in AI tools and an integrated marketplace.',

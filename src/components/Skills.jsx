@@ -1,12 +1,13 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, Card, CardContent } from '@mui/material';
+import { Box, Container, Grid, Typography, Card, CardContent, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import { portfolioData } from '../utils/data';
 
 const Skills = () => {
+  const theme = useTheme();
   return (
-    <Box sx={{ py: 15, bgcolor: 'rgba(15, 23, 42, 0.4)' }}>
+    <Box sx={{ py: 1, bgcolor: theme.palette.mode === 'dark' ? 'rgba(15, 23, 42, 0.4)' : 'rgba(241, 245, 249, 0.4)' }}>
       <Container maxWidth="lg">
 
         <Box sx={{ mb: 8, textAlign: 'center' }}>
@@ -39,8 +40,6 @@ const Skills = () => {
                 justifyContent: 'center',
                 textAlign: 'center',
                 cursor: 'default',
-                bgcolor: 'rgba(30, 41, 59, 0.6)',
-                border: '1px solid rgba(255,255,255,0.05)',
                 transition: 'transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease',
                 '&:hover': {
                   transform: 'translateY(-8px)',

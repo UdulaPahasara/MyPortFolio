@@ -1,11 +1,12 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { Box, Container, Typography, TextField, Button } from '@mui/material';
+import { Box, Container, Typography, TextField, Button, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Icon } from '@iconify/react';
 import { portfolioData } from '../utils/data';
 
 const Contact = () => {
+  const theme = useTheme();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
@@ -50,11 +51,11 @@ const Contact = () => {
 
   const textFieldSx = {
     '& .MuiOutlinedInput-root': {
-      color: 'white',
-      bgcolor: 'rgba(255,255,255,0.03)',
+      color: 'text.primary',
+      bgcolor: theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)',
       borderRadius: '12px',
-      '& fieldset': { borderColor: 'rgba(255,255,255,0.1)' },
-      '&:hover fieldset': { borderColor: 'rgba(255,255,255,0.2)' },
+      '& fieldset': { borderColor: theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)' },
+      '&:hover fieldset': { borderColor: theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)' },
       '&.Mui-focused fieldset': { borderColor: 'primary.main' },
     },
     '& .MuiInputLabel-root': { color: 'text.secondary' },
@@ -65,12 +66,11 @@ const Contact = () => {
     { icon: 'mdi:email-outline',  label: 'Email',    value: portfolioData.personalInfo.email,    href: `mailto:${portfolioData.personalInfo.email}` },
     { icon: 'mdi:github',         label: 'GitHub',   value: 'github.com',                        href: portfolioData.personalInfo.github },
     { icon: 'mdi:linkedin',       label: 'LinkedIn', value: 'linkedin.com',                      href: portfolioData.personalInfo.linkedin },
-    { icon: 'mdi:facebook',       label: 'Facebook', value: 'facebook.com',                      href: portfolioData.personalInfo.facebook },
     { icon: 'mdi:whatsapp',       label: 'WhatsApp', value: portfolioData.personalInfo.whatsapp, href: `https://wa.me/${portfolioData.personalInfo.whatsapp.replace('+', '')}` },
   ];
 
   return (
-    <Box sx={{ py: { xs: 10, md: 14 }, position: 'relative' }}>
+    <Box sx={{ py: { xs: 0, md: 0 }, position: 'relative' }}>
       <Container maxWidth="lg">
         <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }}>
 
@@ -116,8 +116,8 @@ const Contact = () => {
                     gap: 2,
                     p: 2.5,
                     borderRadius: '16px',
-                    bgcolor: 'rgba(15, 23, 42, 0.5)',
-                    border: '1px solid rgba(255,255,255,0.06)',
+                    bgcolor: theme.palette.mode === 'dark' ? 'rgba(15, 23, 42, 0.5)' : 'rgba(255, 255, 255, 0.8)',
+                    border: theme.palette.mode === 'dark' ? '1px solid rgba(255,255,255,0.06)' : '1px solid rgba(0,0,0,0.06)',
                     textDecoration: 'none',
                     transition: 'all 0.25s',
                     '&:hover': {
@@ -172,8 +172,8 @@ const Contact = () => {
                     gap: 2,
                     p: 2,
                     borderRadius: '14px',
-                    bgcolor: 'rgba(15, 23, 42, 0.5)',
-                    border: '1px solid rgba(255,255,255,0.06)',
+                    bgcolor: theme.palette.mode === 'dark' ? 'rgba(15, 23, 42, 0.5)' : 'rgba(255, 255, 255, 0.8)',
+                    border: theme.palette.mode === 'dark' ? '1px solid rgba(255,255,255,0.06)' : '1px solid rgba(0,0,0,0.06)',
                     textDecoration: 'none',
                     transition: 'all 0.25s',
                     flex: '0 1 calc(33.333% - 8px)',
@@ -212,9 +212,9 @@ const Contact = () => {
             <Box ref={form} onSubmit={sendEmail} component="form" sx={{
               p: { xs: 3, sm: 5 },
               borderRadius: '24px',
-              bgcolor: 'rgba(15, 23, 42, 0.6)',
-              border: '1px solid rgba(255,255,255,0.05)',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
+              bgcolor: theme.palette.mode === 'dark' ? 'rgba(15, 23, 42, 0.6)' : 'rgba(255, 255, 255, 0.6)',
+              border: theme.palette.mode === 'dark' ? '1px solid rgba(255,255,255,0.05)' : '1px solid rgba(0,0,0,0.05)',
+              boxShadow: theme.palette.mode === 'dark' ? '0 20px 40px rgba(0,0,0,0.2)' : '0 20px 40px rgba(0,0,0,0.05)',
             }}>
               <Box sx={{
                 display: 'grid',
