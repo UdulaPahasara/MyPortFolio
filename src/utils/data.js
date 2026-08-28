@@ -2,7 +2,7 @@ export const portfolioData = {
   personalInfo: {
     name: 'PEHESARA Developer',
     bio: 'I am a passionate Full Stack Developer with expertise in building scalable, modern web applications. I love solving complex problems and crafting intuitive user experiences.',
-    github: 'https://github.com',
+    github: 'https://github.com/UdulaPahasara',
     linkedin: 'https://www.linkedin.com/in/udula-pehesara-a9a038358/',
     whatsapp: '+94768505837',
     email: 'udulapahasara1@gmail.com',
@@ -39,7 +39,7 @@ export const portfolioData = {
         'https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=2000&auto=format&fit=crop' // Event/Conference placeholder
       ],
       tech: ['React', 'Spring Boot', 'Java', 'MySQL', 'Material-UI', 'JWT', 'Gemini AI'],
-      githubUrl: 'https://github.com',
+      githubUrl: 'https://github.com/UdulaPahasara',
       liveUrl: 'https://sledaa.com/',
     },
 
@@ -65,7 +65,7 @@ export const portfolioData = {
         'https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?q=80&w=2000&auto=format&fit=crop'
       ],
       tech: ['React', 'Vite', 'Three.js', 'Google OAuth', 'Gemini AI', 'i18next', 'Chart.js', 'Material-UI'],
-      githubUrl: 'https://github.com',
+      githubUrl: 'https://github.com/UdulaPahasara',
       liveUrl: 'https://spkstore.lk/',
     },
     {
@@ -89,7 +89,7 @@ export const portfolioData = {
         
       ],
       tech: ['React', 'Vite', 'Material-UI', 'React Router', 'EmailJS'],
-      githubUrl: 'https://github.com',
+      githubUrl: 'https://github.com/UdulaPahasara',
       liveUrl: 'https://example.com',
     },
     {
@@ -114,7 +114,7 @@ export const portfolioData = {
         'https://images.unsplash.com/photo-1582793988951-9aed5509eb97?q=80&w=2000&auto=format&fit=crop'
       ],
       tech: ['React', 'Vite', 'Material-UI', 'Swiper', 'EmailJS'],
-      githubUrl: 'https://github.com',
+      githubUrl: 'https://github.com/UdulaPahasara',
       liveUrl: 'https://tealora.com',
     },
     {
@@ -137,7 +137,7 @@ export const portfolioData = {
         'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2000&auto=format&fit=crop'
       ],
       tech: ['React', 'Vite', 'Material-UI', 'Framer Motion', 'React Helmet'],
-      githubUrl: 'https://github.com',
+      githubUrl: 'https://github.com/UdulaPahasara',
       liveUrl: 'https://zylogenix-orcin.vercel.app/',
     },
     {
@@ -159,7 +159,7 @@ export const portfolioData = {
         'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop' // Dashboard analytics
       ],
       tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'Gemini AI'],
-      githubUrl: 'https://github.com',
+      githubUrl: 'https://github.com/UdulaPahasara',
       liveUrl: 'https://example.com',
     },
    
@@ -186,7 +186,7 @@ export const portfolioData = {
         'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2000&auto=format&fit=crop'
       ],
       tech: ['React 19', 'Vite', 'Material-UI', 'Emotion', 'React Router', 'Gemini AI'],
-      githubUrl: 'https://github.com',
+      githubUrl: 'https://github.com/UdulaPahasara',
       liveUrl: 'https://example.com',
     },
     {
@@ -209,7 +209,7 @@ export const portfolioData = {
       extraImages: [
         'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=2000&auto=format&fit=crop'],
       tech: ['React', 'Fabric.js', 'Spring Boot', 'Java', 'MySQL', 'Clipdrop API', 'Material-UI', 'Vite'],
-      githubUrl: 'https://github.com',
+      githubUrl: 'https://github.com/UdulaPahasara',
       liveUrl: 'https://example.com',
     }
   ]
