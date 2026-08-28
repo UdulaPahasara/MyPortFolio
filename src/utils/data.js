@@ -90,7 +90,7 @@ export const portfolioData = {
       ],
       tech: ['React', 'Vite', 'Material-UI', 'React Router', 'EmailJS'],
       githubUrl: 'https://github.com/UdulaPahasara',
-      liveUrl: 'https://example.com',
+      liveUrl: 'https://acelitecleaning.com.au/',
     },
     {
       title: 'TeaLora Ceylon',
@@ -115,7 +115,7 @@ export const portfolioData = {
       ],
       tech: ['React', 'Vite', 'Material-UI', 'Swiper', 'EmailJS'],
       githubUrl: 'https://github.com/UdulaPahasara',
-      liveUrl: 'https://tealora.com',
+      liveUrl: 'https://tealoraceylon.com/',
     },
     {
       title: 'Zylogenix',
