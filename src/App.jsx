@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { Box, CircularProgress } from '@mui/material';
 import Navbar from './components/Navbar';
 import SmoothScroll from './components/SmoothScroll';
@@ -20,6 +20,14 @@ const SectionFallback = () => (
 );
 
 function App() {
+  useEffect(() => {
+    // Prevent the browser from restoring scroll position or scrolling to a hash automatically
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <SmoothScroll>
       <Box sx={{ position: 'relative' }}>

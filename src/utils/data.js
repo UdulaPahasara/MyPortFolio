@@ -17,8 +17,6 @@ export const portfolioData = {
     { name: 'MongoDB', icon: 'logos:mongodb-icon' },
     { name: 'GitHub', icon: 'mdi:github' },
     { name: 'AI Bots', icon: 'fluent:bot-24-regular' },
-    { name: 'Antigravity AI', icon: 'fluent:bot-sparkle-24-regular' },
-    { name: 'MERN Stack', icon: 'mdi:layers-triple' },
   ],
   projects: [
     {

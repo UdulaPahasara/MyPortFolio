@@ -32,9 +32,18 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    
+    const resizeObserver = new ResizeObserver(() => {
+      handleScroll();
+    });
+    resizeObserver.observe(document.documentElement);
+
     handleScroll(); // Call once on mount to set initial state
     
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      resizeObserver.disconnect();
+    };
   }, []);
 
   return (
