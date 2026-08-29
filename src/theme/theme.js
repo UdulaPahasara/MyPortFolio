@@ -19,17 +19,17 @@ export const getAppTheme = (mode) => createTheme({
     },
   },
   typography: {
-    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Poppins", sans-serif',
     h1: {
-      fontFamily: '"Geist", sans-serif',
+      fontFamily: '"Poppins", sans-serif',
       fontWeight: 700,
     },
     h2: {
-      fontFamily: '"Geist", sans-serif',
+      fontFamily: '"Poppins", sans-serif',
       fontWeight: 600,
     },
     h3: {
-      fontFamily: '"Geist", sans-serif',
+      fontFamily: '"Poppins", sans-serif',
       fontWeight: 600,
     },
     h5: {
